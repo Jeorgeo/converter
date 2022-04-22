@@ -34,7 +34,7 @@
 
         $file = $_SERVER["DOCUMENT_ROOT"].'/json/' . $nameFile . '.json';
 
-        $result = json_encode($rows);
+        $result = json_encode($rows, JSON_UNESCAPED_UNICODE);
 
         if (file_put_contents($file, $result, LOCK_EX)) {
           echo 'Конвертация завершена!';
@@ -81,7 +81,7 @@ else
 // Выводим сообщение пользователю
 
 print "<script language='Javascript'><!--
-function reload() {location = \"converter.php\"}; setTimeout('reload()', 3000);
+function reload() {location = \"index.php\"}; setTimeout('reload()', 3000);
 //--></script>
 
 <p>Сообщение отправлено! Подождите, сейчас вы будете перенаправлены на главную страницу...</p>";
